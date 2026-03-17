@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* ── OneChain Cyberpunk Theme ── */
+
+:root {
+  /* Core cyberpunk palette */
+  --cyber-black: #0a0a0f;
+  --cyber-dark: #1a1a2e;
+  --cyber-accent: #00d9ff;
+  --cyber-accent-dim: #0088aa;
+  --winner-gold: #ffd700;
+  --winner-gold-dim: #ff8800;
+  --error-red: #ff1744;
+  --cyber-grid: #2a2a3e;
+  --cyber-muted: #8b8b9a;
+
+  /* Semantic */
+  --background: #0a0a0f;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-rajdhani);
+  --font-orbitron: var(--font-orbitron);
+
+  /* Custom animation for the ticker marquee */
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-glow-line: glow-line 3s linear infinite;
+}
+
+/* Ticker scroll animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Glowing line sweep */
+@keyframes glow-line {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Ensure smooth scrollbar behavior */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--cyber-accent) var(--cyber-dark);
+}

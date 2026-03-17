@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Game { 
+  id              String     @id @default(uuid())
+  onchain_game_id String     @unique
+  status          String     // "active" or "completed"
+  created_at      DateTime   @default(now())
+  
+  questions       Question[]
+} 
+
+model Question {
+  id            String   @id @default(uuid())
+  game_id       String
+  question_text String
+  options       String[] 
+  correct_index Int      
+  
+  game          Game     @relation(fields: [game_id], references: [id])
+}
