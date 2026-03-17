@@ -24,6 +24,10 @@ pnpm-debug.log*
 Thumbs.db
 .vscode/
 
+# Optional workspace content
+/agents/
+/docs/
+
 # Prisma local DB artifacts
 **/*.db
 **/*.db-journal
