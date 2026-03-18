@@ -18,12 +18,13 @@ import {
   useCurrentAccount,
   useSuiClient,
 } from "@mysten/dapp-kit";
-import { Ed25519Keypair } from "@mysten/sui/keypairs/ed25519";
-import { decodeSuiPrivateKey } from "@mysten/sui/cryptography";
+import type { Ed25519Keypair } from "@mysten/sui/keypairs/ed25519";
 import { Transaction } from "@mysten/sui/transactions";
 import { fromBase64, toBase64 } from "@mysten/sui/utils";
 import { toast } from "sonner";
 import { Navbar } from "../components/Navbar";
+import { useBurnerWallet } from "../hooks/useBurnerWallet";
+import { type ArenaGame } from "../types/game";
 import {
   ANSWER_COLORS,
   PACKAGE_ID,
@@ -34,22 +35,6 @@ import {
 type GameStatus = "waiting" | "active";
 const AGENT_CYCLE_SECONDS = 60 * 60;
 const ARENA_POLL_SECONDS = 20;
-
-type ArenaQuestion = {
-  id: string;
-  game_id: string;
-  question_text: string;
-  options: string[];
-  correct_index: number;
-};
-
-type ArenaGame = {
-  id: string;
-  onchain_game_id: string;
-  status: "active" | "completed";
-  created_at: string;
-  questions: ArenaQuestion[];
-};
 
 type ApiError = Error & {
   status?: number;
@@ -93,6 +78,7 @@ const RANK_STYLES: Record<
 export default function ArenaPage() {
   const account = useCurrentAccount();
   const suiClient = useSuiClient();
+  const { burner } = useBurnerWallet();
 
   const [gameStatus, setGameStatus] = useState<GameStatus>("waiting");
   const [timeLeft, setTimeLeft] = useState(AGENT_CYCLE_SECONDS);
@@ -101,7 +87,6 @@ export default function ArenaPage() {
   const [fetchErrorCode, setFetchErrorCode] = useState<number | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [completedGameId, setCompletedGameId] = useState<string | null>(null);
-  const [burner, setBurner] = useState<Ed25519Keypair | null>(null);
 
   const getCycleTimeLeft = useCallback((createdAt: string) => {
     const createdAtMs = new Date(createdAt).getTime();
@@ -167,19 +152,6 @@ export default function ArenaPage() {
   useEffect(() => {
     void loadActiveGame();
   }, [loadActiveGame]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("onetrivia_burner");
-    if (stored) {
-      const { secretKey } = decodeSuiPrivateKey(stored);
-      setBurner(Ed25519Keypair.fromSecretKey(secretKey));
-      return;
-    }
-
-    const kp = new Ed25519Keypair();
-    localStorage.setItem("onetrivia_burner", kp.getSecretKey());
-    setBurner(kp);
-  }, []);
 
   useEffect(() => {
     if (gameStatus !== "waiting") return;
