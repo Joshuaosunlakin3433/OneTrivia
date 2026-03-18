@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
-import { Prisma } from "@prisma/client";
+import {
+  PrismaClientInitializationError,
+  PrismaClientKnownRequestError,
+} from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 
 export async function GET() {
@@ -21,7 +24,7 @@ export async function GET() {
   } catch (error) {
     console.error("Failed to fetch active arena game:", error);
 
-    if (error instanceof Prisma.PrismaClientInitializationError) {
+    if (error instanceof PrismaClientInitializationError) {
       return NextResponse.json(
         {
           error:
@@ -32,7 +35,7 @@ export async function GET() {
     }
 
     if (
-      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error instanceof PrismaClientKnownRequestError &&
       error.code === "P2021"
     ) {
       return NextResponse.json(
