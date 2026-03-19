@@ -45,7 +45,7 @@ export default function LandingPage() {
         <Navbar />
 
         {/* ── Hero Section ── */}
-        <div className="flex-1 flex flex-col items-center justify-center px-8 py-20">
+        <div className="flex-1 flex flex-col items-center justify-center px-4 py-16 sm:px-6 sm:py-20 md:px-8">
           {/* Title with glitch effect */}
           <motion.div
             initial={{ opacity: 0, y: -50 }}
@@ -54,7 +54,7 @@ export default function LandingPage() {
             className="text-center mb-6 relative"
           >
             <h1
-              className="text-7xl md:text-9xl tracking-wider mb-2 relative"
+              className="text-[clamp(2.5rem,14vw,9rem)] leading-none tracking-tight sm:tracking-wider mb-2 relative"
               style={{
                 fontFamily: "var(--font-orbitron), sans-serif",
                 fontWeight: 900,
@@ -114,7 +114,7 @@ export default function LandingPage() {
             className="text-center mb-16"
           >
             <p
-              className="text-2xl md:text-3xl bg-linear-to-r from-[#00d9ff] via-[#ffd700] to-[#00d9ff] bg-clip-text text-transparent"
+              className="text-base sm:text-xl md:text-3xl px-2 bg-linear-to-r from-[#00d9ff] via-[#ffd700] to-[#00d9ff] bg-clip-text text-transparent"
               style={{
                 fontFamily: "var(--font-rajdhani), sans-serif",
                 fontWeight: 700,
