@@ -2,6 +2,8 @@
 
 ## Gasless, Agentic Knowledge Economy on OneChain
 
+![OneTrivia Logo](./web/public/onetrivia%20logo.png)
+
 OneTrivia is a Kahoot-style, on-chain trivia platform built for **OneHack 3.0 (AI + GameFi)**.
 
 It turns conference crowds, communities, and crypto-native gamers into active participants in a **knowledge economy** where answers, rankings, and reward logic are verifiable on-chain, while the UX feels as smooth as Web2.
@@ -18,6 +20,8 @@ People scan a QR code, get excited, then hit a wall:
 - transaction popups for every action
 
 Most users drop before they ever play.
+
+![OneTrivia Landing](./web/public/landing-page.png)
 
 ## 🔥 The Problem & Solution
 
@@ -57,6 +61,10 @@ A live host controls the room like a modern quizmaster:
 - Players answer on mobile with no gas friction
 - Scores are settled transparently with OneChain-backed logic
 
+![Host Mode](./web/public/Hostmode.png)
+
+![Game Created](./web/public/Game%20created.png)
+
 ### The Arena (24/7 Autonomous)
 
 The Arena is always online, powered by **The Oracle**:
@@ -65,6 +73,12 @@ The Arena is always online, powered by **The Oracle**:
 - AI-generated question sets keep gameplay fresh
 - Players can join any time and compete asynchronously
 - Status, lifecycle, and session continuity are maintained by backend memory
+
+![Arena Questions](./web/public/Questions.png)
+
+![Mobile Gameplay](./web/public/mobile%20view.jpg)
+
+![Mobile Correct Answer](./web/public/answer%20correct-%20mobile%20view.jpg)
 
 ## 🤖 The Oracle Agent
 
@@ -90,6 +104,8 @@ The Oracle is a backend daemon that orchestrates autonomous gameplay end-to-end.
 - Broadcasts new matches through **Discord Webhooks**
 - Can be extended to social channels for growth loops and re-engagement
 
+![Discord Integration](./web/public/Discord%20integration.png)
+
 ## 🧱 Architecture Snapshot
 
 - **Frontend:** Next.js App Router client for host and player experiences
@@ -98,6 +114,10 @@ The Oracle is a backend daemon that orchestrates autonomous gameplay end-to-end.
 - **Autonomous Worker:** Node.js Oracle daemon for Arena lifecycle management
 - **Data Layer:** Supabase Postgres via Prisma ORM
 - **AI Layer:** Gemini-powered question generation and content control
+
+![Leaderboard](./web/public/leaderboards.png)
+
+![Winner Screen](./web/public/winner.png)
 
 ## 🚀 Roadmap (The Vision)
 
@@ -161,7 +181,7 @@ npm run dev
 ```bash
 cd agent
 npm install
-npm run dev
+npm run agent
 ```
 
 ## Vision Statement

@@ -9,7 +9,9 @@
     "generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
-    "studio": "prisma studio"
+    "studio": "prisma studio",
+    "dev": "node --loader ts-node/esm index.ts",
+    "agent": "node --loader ts-node/esm index.ts"
   },
   "keywords": [],
   "author": "",
