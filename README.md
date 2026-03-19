@@ -2,7 +2,7 @@
 
 ## Gasless, Agentic Knowledge Economy on OneChain
 
-![OneTrivia Logo](./web/public/onetrivia%20logo.png)
+![OneTrivia Landing](./web/public/landing-page.png)
 
 OneTrivia is a Kahoot-style, on-chain trivia platform built for **OneHack 3.0 (AI + GameFi)**.
 
@@ -20,8 +20,6 @@ People scan a QR code, get excited, then hit a wall:
 - transaction popups for every action
 
 Most users drop before they ever play.
-
-![OneTrivia Landing](./web/public/landing-page.png)
 
 ## 🔥 The Problem & Solution
 
