@@ -45,7 +45,10 @@ export default function LandingPage() {
         <Navbar />
 
         {/* ── Hero Section ── */}
-        <div className="flex-1 flex flex-col items-center justify-center px-4 py-16 sm:px-6 sm:py-20 md:px-8">
+        <div
+          id="hero"
+          className="flex-1 flex flex-col items-center justify-center px-4 py-16 sm:px-6 sm:py-20 md:px-8"
+        >
           {/* Title with glitch effect */}
           <motion.div
             initial={{ opacity: 0, y: -50 }}
