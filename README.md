@@ -174,13 +174,21 @@ npm install
 npm run dev
 ```
 
-### Run Oracle Agent
+### Run Oracle Agent (Optional for Judges)
 
 ```bash
 cd agent
 npm install
 npm run agent
 ```
+
+### Judge Note
+
+Host Mode and core gameplay are publicly deployed and reproducible for judging.
+
+The Oracle Agent is implemented and demonstrated end-to-end in the submitted demo video, but it is not publicly hosted in this submission because it depends on private credentials (database, AI API, and agent wallet key) and always-on infrastructure cost.
+
+For security, secrets are not committed to this repository or submission docs. The agent wallet used in the demo is funded on OneChain testnet only.
 
 ## Vision Statement
 
